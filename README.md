@@ -3,12 +3,12 @@ Simple theme switcher for web sites through a data attribute attached to the `ht
 
 ## Features
 * Can automatically pick dark or light theme based on system settings
-  * This feature is disabled when actively choosing a certain theme
-  * This feature can be re-enabled if the visitor switches back to `automatic`
+    * This feature is disabled when actively choosing a certain theme
+    * This feature can be re-enabled if the visitor switches back to `automatic` theme
 * Remembers your preferred theme for next visit
 
 ## Usage
-* Initialize the functionality and attach event listeners. Below is an example that would listen to buttons that has the classes `js-changeTheme` in combination with a `data-theme="theme-name"` data attribute.
+* Initialize the functionality and attach event listeners
 ```js
 const pagestick = new Pagestick();
 window.matchMedia('(prefers-color-scheme: dark)').addListener(_ => pagestick.changeTheme());
@@ -17,6 +17,9 @@ document.querySelectorAll('.js-changeTheme').forEach(element => element.addEvent
     pagestick.changeTheme(theme ? theme : 'automatic');
 }));
 ```
+*  In the example above, buttons that has the classes `js-changeTheme` will trigger theme switching on click
+    * If there is a `data-theme` attribute on the button, it'll switch to that theme. Eg; `data-theme="theme-name"`
+    * If the button lacks a `data-theme` attribute, it'll swtich back to `automatic` theme
 
 ## Good practice
-I recommend that you have a default theme attached to the `html` tag, in case the visitor has disabled JavaScript.
+I recommend that you have a default theme attached to the `html` tag, in case the visitor has disabled JavaScript, for example `<html data-theme="light">`
