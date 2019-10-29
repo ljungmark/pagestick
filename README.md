@@ -8,6 +8,9 @@ Simple theme switcher for web sites through a data attribute attached to the `ht
 * Remembers your preferred theme for next visit
 
 ## Usage
+### HTML
+I recommend that you have a default theme attached to the `html` tag in case the visitor has disabled JavaScript. Eg; `<html data-theme="light">`
+
 ### JavaScript
 * Initialize the functionality and attach event listeners
 ```js
@@ -34,6 +37,3 @@ document.querySelectorAll('.js-changeTheme').forEach(element => element.addEvent
     --color-font: hsl(0, 0%, 0%);
 }
 ```
-
-## Good practice
-I recommend that you have a default theme attached to the `html` tag in case the visitor has disabled JavaScript. Eg; `<html data-theme="light">`
