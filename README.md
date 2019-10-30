@@ -9,7 +9,14 @@ Simple theme switcher for web sites through a data attribute attached to the `ht
 
 ## Usage
 ### HTML
-I recommend that you have a default theme attached to the `html` tag in case the visitor has disabled JavaScript. Eg; `<html data-theme="light">`
+* Setup a default theme attached to the `html` tag in case the visitor has disabled JavaScript.
+```html
+<html data-theme="light">
+    ...
+    <button class="js-changeTheme" data-theme="light">Light</button>
+    <button class="js-changeTheme" data-theme="dark">Dark</button>
+    <button class="js-changeTheme">Automatic</button>
+```
 
 ### JavaScript
 * Initialize the functionality and attach event listeners
