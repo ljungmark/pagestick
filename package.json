@@ -1,17 +1,14 @@
 {
   "name": "pagestick",
-  "version": "1.0.7",
-  "description": "Web site theme switcher",
+  "version": "1.0.8",
+  "description": "Theme switcher for sites, respecting user system settings",
   "main": "pagestick.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ljungmark/pagestick.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Mattias Ljungmark",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ljungmark/pagestick/issues"
   },

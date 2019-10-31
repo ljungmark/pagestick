@@ -1,8 +1,9 @@
 # Pagestick
-Simple theme switcher for web sites through a data attribute attached to the `html` tag.
+Theme switcher for sites, respecting user system settings
 
 ## Features
 * Can automatically pick dark or light theme based on system settings
+    * Instantly updates theme when user is changing their system settings
     * This feature is disabled when actively choosing a certain theme
     * This feature can be re-enabled if the visitor switches back to `automatic` theme
 * Remembers your preferred theme for next visit
