@@ -1,8 +1,8 @@
 {
   "name": "pagestick",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Theme switcher for sites, respecting user system settings",
-  "main": "pagestick.ts",
+  "main": "dist/pagestick.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ljungmark/pagestick.git"
