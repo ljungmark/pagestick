@@ -43,3 +43,4 @@ var Pagestick = /** @class */ (function () {
     return Pagestick;
 }());
 exports.Pagestick = Pagestick;
+//# sourceMappingURL=pagestick.js.map
