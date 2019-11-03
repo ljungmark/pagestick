@@ -1,6 +1,6 @@
 {
   "name": "pagestick",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Theme switcher for sites, respecting user system settings",
   "main": "dist/pagestick.js",
   "repository": {
