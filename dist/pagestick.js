@@ -1,5 +1,3 @@
-"use strict";
-exports.__esModule = true;
 var Pagestick = /** @class */ (function () {
     function Pagestick() {
         this.preferredDarkTheme = 'dark';
@@ -42,5 +40,5 @@ var Pagestick = /** @class */ (function () {
     };
     return Pagestick;
 }());
-exports.Pagestick = Pagestick;
+export { Pagestick };
 //# sourceMappingURL=pagestick.js.map
