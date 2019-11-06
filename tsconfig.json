@@ -2,7 +2,8 @@
     "compilerOptions": {
         "outDir": "dist",
         "sourceMap": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "module": "esnext"
     },
     "include": [
         "src/**/*"

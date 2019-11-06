@@ -18,14 +18,26 @@
   },
   "devDependencies": {
     "express": "^4.17.1",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "jest-puppeteer": "^4.3.0",
+    "puppeteer": "^2.0.0"
   },
   "scripts": {
-    "test": "jest"
+    "tests": "jest",
+    "serve": "node server.js"
   },
   "keywords": [
     "themes",
     "dark-theme",
     "light-theme"
-  ]
+  ],
+  "jest": {
+    "preset": "jest-puppeteer",
+    "globals": {
+      "PATH": "http://localhost:4444"
+    },
+    "testMatch": [
+      "**/*.test.js"
+    ]
+  }
 }

@@ -8,6 +8,14 @@ Theme switcher for sites, respecting user system settings
     * This feature can be re-enabled if the visitor switches back to `automatic` theme
 * Remembers your preferred theme for next visit
 
+## Tests
+* Run `npm install`
+* Run `npm run tests`
+
+### Try it in a browser
+* Run `npm run serve`
+* Visit `localhost:4444`
+
 ## Usage
 ### HTML
 * Setup a default theme attached to the `html` tag in case the visitor has disabled JavaScript.
