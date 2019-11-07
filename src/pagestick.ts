@@ -7,9 +7,12 @@ class Pagestick implements PagestickInterface {
     private preferredColorScheme: string;
     private preferredDarkTheme: string = 'dark';
     private preferredLightTheme: string = 'light';
-    private theme: string = 'automatic';
+    private theme: string;
 
     constructor() {
+        const theme = localStorage.getItem('theme');
+        this.theme = theme ? theme : 'automatic';
+
         this.identifyPerferredColorScheme();
         this.changeTheme();
     }
@@ -20,27 +23,23 @@ class Pagestick implements PagestickInterface {
         } else {
             this.preferredColorScheme = 'light';
         }
-
-        const theme = localStorage.getItem('theme');
-        this.theme = theme ? theme : 'automatic';
     }
 
     public changeTheme(theme?: string): void {
-        if (!theme && this.theme !== 'automatic') {
+        if (theme && theme === 'system' && this.theme === 'automatic') {
+            this.identifyPerferredColorScheme();
+            this.theme = 'automatic';
+            document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;;
+            localStorage.setItem('theme', this.theme);
+        } else if (theme && theme === 'automatic' && this.theme !== 'automatic') {
+            this.identifyPerferredColorScheme();
+            this.theme =  'automatic';
+            document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;
+            localStorage.setItem('theme', this.theme);
+        } else if (theme && theme !== 'automatic' && theme !== 'system') {
+            this.theme = theme;
             document.querySelector('html').dataset.theme = this.theme;
-        } else if (!theme && this.theme === 'automatic') {
-            this.identifyPerferredColorScheme();
-            document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;
-            localStorage.setItem('theme', 'automatic');
-        } else if (theme && theme !== 'automatic') {
-            this.theme = theme;
-            document.querySelector('html').dataset.theme = theme;
-            localStorage.setItem('theme', theme);
-        } else if (theme && theme === 'automatic') {
-            this.theme = theme;
-            this.identifyPerferredColorScheme();
-            document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;
-            localStorage.setItem('theme', theme);
+            localStorage.setItem('theme', this.theme);
         }
 
         return;
