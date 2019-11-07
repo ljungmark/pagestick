@@ -16,14 +16,7 @@ var Pagestick = /** @class */ (function () {
         }
     };
     Pagestick.prototype.changeTheme = function (theme) {
-        if (theme && theme === 'system' && this.theme === 'automatic') {
-            this.identifyPerferredColorScheme();
-            this.theme = 'automatic';
-            document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;
-            ;
-            localStorage.setItem('theme', this.theme);
-        }
-        else if (theme && theme === 'automatic' && this.theme !== 'automatic') {
+        if (theme && ((theme === 'system' && this.theme === 'automatic') || theme === 'automatic' && this.theme !== 'automatic')) {
             this.identifyPerferredColorScheme();
             this.theme = 'automatic';
             document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;
@@ -33,6 +26,13 @@ var Pagestick = /** @class */ (function () {
             this.theme = theme;
             document.querySelector('html').dataset.theme = this.theme;
             localStorage.setItem('theme', this.theme);
+        }
+        else if (!theme && this.theme !== 'automatic') {
+            document.querySelector('html').dataset.theme = this.theme;
+        }
+        else if (!theme && this.theme === 'automatic') {
+            this.identifyPerferredColorScheme();
+            document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;
         }
         return;
     };

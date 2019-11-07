@@ -26,20 +26,20 @@ class Pagestick implements PagestickInterface {
     }
 
     public changeTheme(theme?: string): void {
-        if (theme && theme === 'system' && this.theme === 'automatic') {
+        if (theme && ((theme === 'system' && this.theme === 'automatic') || theme === 'automatic' && this.theme !== 'automatic')) {
             this.identifyPerferredColorScheme();
             this.theme = 'automatic';
-            document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;;
-            localStorage.setItem('theme', this.theme);
-        } else if (theme && theme === 'automatic' && this.theme !== 'automatic') {
-            this.identifyPerferredColorScheme();
-            this.theme =  'automatic';
             document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;
             localStorage.setItem('theme', this.theme);
         } else if (theme && theme !== 'automatic' && theme !== 'system') {
             this.theme = theme;
             document.querySelector('html').dataset.theme = this.theme;
             localStorage.setItem('theme', this.theme);
+        } else if (!theme && this.theme !== 'automatic') {
+            document.querySelector('html').dataset.theme = this.theme;
+        } else if (!theme && this.theme === 'automatic') {
+            this.identifyPerferredColorScheme();
+            document.querySelector('html').dataset.theme = this.preferredColorScheme === 'dark' ? this.preferredDarkTheme : this.preferredLightTheme;
         }
 
         return;
