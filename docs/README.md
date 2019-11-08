@@ -13,6 +13,7 @@ Theme switcher for sites, respecting user system settings
 * Run `npm run tests`
 
 ### Try it in a browser
+* Run `npm install`
 * Run `npm run serve`
 * Visit `localhost:4444`
 
