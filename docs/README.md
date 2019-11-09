@@ -31,12 +31,16 @@ Theme switcher for sites, respecting user system settings
 ### JavaScript
 * Initialize the functionality and attach event listeners
 ```js
-const pagestick = new Pagestick();
-window.matchMedia('(prefers-color-scheme: dark)').addListener(_ => pagestick.changeTheme());
-document.querySelectorAll('.js-changeTheme').forEach(element => element.addEventListener('click', event => {
-    const theme = (<HTMLAnchorElement>event.currentTarget).dataset.theme;
-    pagestick.changeTheme(theme ? theme : 'automatic');
-}));
+import { Pagestick } from "dist/pagestick.js";
+
+var pagestick = new Pagestick();
+window.matchMedia('(prefers-color-scheme: dark)').addListener(function (_) { return pagestick.changeTheme('system'); });
+document.querySelectorAll('.js-changeTheme').forEach(function (element) {
+        return element.addEventListener('click', function (event) {
+        var theme = event.currentTarget.dataset.theme;
+        pagestick.changeTheme(theme ? theme : 'automatic');
+    });
+});
 ```
 *  In the example above, buttons that has the classes `js-changeTheme` will trigger theme switching on click
     * If there is a `data-theme` attribute on the button, it'll switch to that theme. Eg; `data-theme="dark"`
