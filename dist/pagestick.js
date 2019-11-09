@@ -15,6 +15,9 @@ var Pagestick = /** @class */ (function () {
             this.preferredColorScheme = 'light';
         }
     };
+    Pagestick.prototype.currentTheme = function () {
+        return this.theme;
+    };
     Pagestick.prototype.changeTheme = function (theme) {
         if (theme && ((theme === 'system' && this.theme === 'automatic') || theme === 'automatic' && this.theme !== 'automatic')) {
             this.identifyPerferredColorScheme();

@@ -1,5 +1,6 @@
 interface PagestickInterface {
     identifyPerferredColorScheme(): void;
+    currentTheme(): string;
     changeTheme(theme?: string): void;
 }
 
@@ -23,6 +24,10 @@ class Pagestick implements PagestickInterface {
         } else {
             this.preferredColorScheme = 'light';
         }
+    }
+
+    public currentTheme(): string {
+        return this.theme;
     }
 
     public changeTheme(theme?: string): void {
