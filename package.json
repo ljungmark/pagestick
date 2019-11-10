@@ -1,6 +1,6 @@
 {
   "name": "pagestick",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Theme switcher for sites, respecting user system settings",
   "main": "dist/pagestick.js",
   "repository": {
@@ -17,6 +17,9 @@
     "typescript": "^3.6.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-jest": "^24.9.0",
     "express": "^4.17.1",
     "jest": "^24.9.0",
     "jest-puppeteer": "^4.3.0",

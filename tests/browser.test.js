@@ -3,7 +3,7 @@ beforeEach(async () => {
     await page.goto(PATH, { waitUntil: 'load' })
 });
 
-describe('Load', () => {
+describe('Loaded page', () => {
     test('Page title is "Pagestick"', async () => {
         await expect(page.title()).resolves.toMatch('Pagestick');
     });
